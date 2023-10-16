@@ -1,0 +1,144 @@
+:root{
+    --main: #1d1d20;
+    --secondary: #f5f5dc;
+    --black: #050505; 
+    --shadow: #16161a;
+    --highlight-cols: #A0DEEE,#86CBED,#936ED4,#F48BA9,#F0B0BC;
+    --highlight-ver: linear-gradient(180deg, var(--highlight-cols));
+    --highlight-hor: linear-gradient(90deg,var(--highlight-cols));
+    --highlight-hor-rev: linear-gradient(270deg, var(--highlight-cols));
+}
+
+@keyframes borderGradient-anim {  
+    0% { background-color: var(--highlight-hor); }
+    50% { background-color: var(--highlight-hor-rev); }
+    100% { background-color: var(--highlight-hor); }
+  }
+
+body, html{
+    margin:0;
+    padding: 0;
+    background-color: var(--main);
+    color: var(--secondary) ;
+    font-family:'Courier New', Courier, monospace;
+    display: flex;
+    flex-direction: column;
+    
+  }
+.gradient-underline{
+  border-image: var(--highlight-hor) 20 ;
+  border-width: 1px;
+  border-style: solid;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+}
+.perfect-center{
+    display: flex;
+    justify-content:center;
+    align-items:center;
+  }
+
+  .transition-standard{
+    transition: all 1s ease-in-out;
+  }
+
+  .page-section{
+    max-height: 100%;
+  }
+
+  nav::before{
+    content: "";
+    position: absolute;
+    top: 100%;
+    width: 100%;
+    left: 0;
+    height: 1px;
+    border-radius: 2px;
+    background: var(--highlight-hor);
+    animation-name:borderGradient-anim;
+    animation-iteration-count: infinite;
+    animation-duration: 4s;
+
+  }
+  .brand-name{
+    width: fit-content;
+    margin: 50px;
+  }
+
+  h2, h3, h4{
+    width: fit-content;
+    margin:25px;
+  }
+
+
+  
+  .jum-img{
+    border-radius: 200px;
+    box-shadow: 0 5px var(--shadow);
+    filter: drop-shadow(-5px var(--shadow));
+    padding: 20px;
+    margin: 0 20px;
+  }
+  .jum-content{
+    width: 50vw;
+    margin: 20vh auto;
+  }
+
+  .portfolio{
+    width: 80%;
+    margin: auto auto 10rem auto;
+    max-height: 100vh;
+
+  }
+  .portfolio-item{
+    background-repeat: no-repeat;
+    background-size:cover;
+    width: 50vw;
+    height: 50vh;
+  }
+  
+  .portfolio-item:hover{
+    filter:blur(0);
+    border-image: var(--highlight-ver) 30;
+    border-width: 4px;
+    border-style: solid;
+    z-index: 36;
+    width: 60vw;
+    height: 60vh;
+    margin: 20px 20px 20px 20px;
+  }
+
+ 
+  .portfolio .row:hover > :not(:hover), .portfolio:hover > :not(:hover) {
+    filter: blur(2px); 
+  }
+  
+  .portfolio-text{
+    background: var(--main);
+    opacity: 40%;
+    filter: blur(0);
+  }
+  
+  
+  
+  #project-1{
+    background-image: url("../img/02-portfolio-4.jpg");
+  }
+  
+  #project-2{
+    background-image: url("../img/02-portfolio-3.jpg");
+  }
+  
+  #project-3{
+    background-image: url("../img/02-portfolio-1.jpg");
+  }
+  
+  #project-4{
+    background-image: url("../img/02-portfolio-2.jpg");
+  }
+  
+  #project-5{
+    background-image: url("../img/02-hero-bg.jpg");
+  }
+  
