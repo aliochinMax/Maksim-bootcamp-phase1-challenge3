@@ -33,6 +33,14 @@ body, html{
   border-left: none;
   border-right: none;
 }
+.gradient-border-curved{
+  border: double 5px transparent;
+  border-radius: 30px;
+  background-image:linear-gradient(white, white), 
+   var(--highlight-hor);
+  background-origin:border-box ;
+  background-clip: padding-box, border-box;
+}
 .perfect-center{
     display: flex;
     justify-content:center;
@@ -76,7 +84,6 @@ body, html{
   .jum-img{
     border-radius: 200px;
     box-shadow: 0 5px var(--shadow);
-    filter: drop-shadow(-5px var(--shadow));
     padding: 20px;
     margin: 0 20px;
   }
@@ -141,4 +148,12 @@ body, html{
   #project-5{
     background-image: url("../img/02-hero-bg.jpg");
   }
-  
+
+
+  #contact-content i, #contact-content a{
+    margin: 10px 10px 10px 10px;
+  }
+  #contact-content a{
+    color:var(--secondary);
+    text-decoration: none;
+  }
