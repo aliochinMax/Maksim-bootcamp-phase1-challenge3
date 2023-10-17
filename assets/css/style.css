@@ -8,11 +8,29 @@
     --highlight-hor: linear-gradient(90deg,var(--highlight-cols));
     --highlight-hor-rev: linear-gradient(270deg, var(--highlight-cols));
 }
+/*ref:https://animated-gradient-background-generator.netlify.app because im lazy*/
+@keyframes gradient-anim {  
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
 
-@keyframes borderGradient-anim {  
-    0% { background-color: var(--highlight-hor); }
-    50% { background-color: var(--highlight-hor-rev); }
-    100% { background-color: var(--highlight-hor); }
+@keyframes gradient-anim-sm {  
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 80% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
   }
 
 body, html{
@@ -23,15 +41,30 @@ body, html{
     font-family:'Courier New', Courier, monospace;
     display: flex;
     flex-direction: column;
+    font-size: 1rem;
     
   }
-.gradient-underline{
+
+a:hover{
+  background: var(--highlight-hor);
+  background-size: 240% 240%;
+  animation: gradient-anim 8s ease infinite;
+  -webkit-background-clip: text; 
+  -webkit-text-fill-color: transparent;
+  opacity: 1;
+}
+
+/*Start of helpers */ 
+
+.gradient-underline{ /* repeated in a:hover because no js*/
   border-image: var(--highlight-hor) 20 ;
   border-width: 1px;
   border-style: solid;
   border-top: none;
   border-left: none;
   border-right: none;
+  background-size: 240% 240%;
+  animation: gradient-anim 8s ease infinite;
 }
 .gradient-border-curved{
   border: double 5px transparent;
@@ -40,6 +73,45 @@ body, html{
    var(--highlight-hor);
   background-origin:border-box ;
   background-clip: padding-box, border-box;
+
+}
+.gradient-border-animated{
+  width:fit-content;
+  height: fit-content;
+  border: 3px transparent solid;
+  background:linear-gradient(var(--main), var(--main)), 
+  var(--highlight-hor);
+  background-size: 260% 260%;
+  animation: gradient-anim-sm 7s ease infinite;
+  -webkit-background-clip: padding-box, border-box;
+}
+
+.gradient-border{
+  border-image: var(--highlight-hor) 10;
+  border-width: 1px;
+  border-style: solid;
+}
+
+.gradient-background-animated{
+  background: var(--highlight-hor) !important;
+  background-size: 240% 240% !important;
+  animation: gradient-anim 8s ease infinite !important;
+}
+
+.gradient-text-animated{
+  background: var(--highlight-hor);
+  background-size: 240% 240%;
+  animation: gradient-anim 8s ease infinite;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gradient-hr-animated{
+  min-height: 2px;
+  opacity: 1;
+  background: var(--highlight-hor);
+  background-size: 240% 240%;
+  animation: gradient-anim 8s ease infinite;
 }
 .perfect-center{
     display: flex;
@@ -47,14 +119,15 @@ body, html{
     align-items:center;
   }
 
-  .transition-standard{
+.transition-standard{
     transition: all 1s ease-in-out;
-  }
+}
+/*end of helpers*/
 
   .page-section{
     max-height: 100%;
   }
-
+/* From amitmerchant: https://www.amitmerchant.com/gradient-text-underlines-using-css/
   nav::before{
     content: "";
     position: absolute;
@@ -64,11 +137,8 @@ body, html{
     height: 1px;
     border-radius: 2px;
     background: var(--highlight-hor);
-    animation-name:borderGradient-anim;
-    animation-iteration-count: infinite;
-    animation-duration: 4s;
-
   }
+  */
   .brand-name{
     width: fit-content;
     margin: 50px;
@@ -79,6 +149,10 @@ body, html{
     margin:25px;
   }
 
+  .nav-border{
+    margin:0;
+    padding: 0;
+  }
 
   
   .jum-img{
@@ -90,6 +164,17 @@ body, html{
   .jum-content{
     width: 50vw;
     margin: 20vh auto;
+  }
+  .btn{
+    width: fit-content;
+    color: var(--secondary);
+  }
+  .btn:hover{
+    background:var(--highlight-hor);
+    background-size: 240% 240%;
+    animation: gradient-anim 8s ease infinite;
+    -webkit-background-clip: text, border;
+    -webkit-text-fill-color: transparent;
   }
 
   .portfolio{
@@ -106,14 +191,13 @@ body, html{
   }
   
   .portfolio-item:hover{
-    filter:blur(0);
     border-image: var(--highlight-ver) 30;
     border-width: 4px;
     border-style: solid;
     z-index: 36;
     width: 60vw;
     height: 60vh;
-    margin: 20px 20px 20px 20px;
+    margin: 20px;
   }
 
  
@@ -153,7 +237,18 @@ body, html{
   #contact-content i, #contact-content a{
     margin: 10px 10px 10px 10px;
   }
+  #contact-content i{
+    background: var(--highlight-hor);
+    background-size: 240% 240%;
+    animation: gradient-anim 8s ease infinite;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+
   #contact-content a{
     color:var(--secondary);
     text-decoration: none;
   }
+
+  
